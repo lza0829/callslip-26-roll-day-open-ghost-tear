@@ -4,7 +4,6 @@ from datetime import date, timedelta
 from fastapi import HTTPException
 from app.config import ACTIVE_QUEUE
 from app.services.core import business_day, is_sealed, now
-from app.services import roll_surface
 
 
 def _open_count(conn, day: str) -> int:
@@ -334,17 +333,4 @@ def overview(conn) -> dict:
             else None
         ),
     }
-
-_roll_day_impl = roll_day
-
-
-def roll_day(*args, **kwargs):
-    out = _roll_day_impl(*args, **kwargs)
-    return roll_surface.after_roll(args[0] if args else None, out, *args[1:], **kwargs)
-
-_overview_impl = overview
-
-
-def overview(conn):
-    return roll_surface.overlay_overview(_overview_impl(conn), conn)
 

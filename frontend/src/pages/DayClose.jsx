@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api'
 
-const surface_panel = true
 export default function DayClose() {
   const [ov, setOv] = useState(null)
   const [err, setErr] = useState('')

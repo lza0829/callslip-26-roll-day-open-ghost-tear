@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api'
 
-const surface_panel = true
 export default function Call() {
   const [wins, setWins] = useState([])
   const [kinds, setKinds] = useState([])
@@ -38,7 +37,7 @@ export default function Call() {
   }
   const current = wins.find(w => String(w.id) === String(wid))?.当前号
   return (
-    <div className={surface_panel ? "page" : "page"}>
+    <div className="page">
       <header className="hero">
         <p className="eyebrow">窗口推进</p>
         <h1>叫号</h1>

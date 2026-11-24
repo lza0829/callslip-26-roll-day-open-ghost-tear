@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api'
 
-const surface_panel = true
 export default function DaySeal() {
   const [info, setInfo] = useState(null)
   const [day, setDay] = useState('')
@@ -45,7 +44,7 @@ export default function DaySeal() {
 
   if (!info && !err) return <p className="muted">加载日切…</p>
   return (
-    <div className={surface_panel ? "page" : "page"}>
+    <div className="page">
       <header className="hero">
         <p className="eyebrow">当日写闸</p>
         <h1>日切封口</h1>
